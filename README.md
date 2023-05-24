@@ -78,7 +78,7 @@ This would select both "Phoebe" and "Zeus".
 
 For this activity, you'll need the [XPath Helper Chrome extension](https://chrome.google.com/webstore/detail/xpath-helper/hgimnogjllphhhkhlmebbmlgjoejdpjl) and a Chromium-based browser like Brave or Google Chrome. Take a minute to get that installed. XPath Helper lets you test out queries on a webpage, and you can use it to select what you want to copy / paste into a spreadsheet. Go ahead and open a spreadsheet to add your data to as well. 
 
-As an example, let's look at the [Wine Spectator Top 100 list](https://top100.winespectator.com/lists/). 
+As an example, let's look at the [Wine Spectator Top 100 list](https://top100.winespectator.com/lists/) from 2021.  
 
 This page is actually well-formatted into a table, so we could potentially copy / paste the information, but that might cause problems when putting it into a spreadsheet format. So we'll use XPath to extract the information on the page for easy import into a spreadsheet. 
 
@@ -89,8 +89,8 @@ You'll see:
 ```html
 <span class="wineName">
     <span class="sort-text">Dominus Estate</span> 
-    Napa Valley 
-    <span class="vintageNumber">2018</span> 
+    " Napa Valley "
+    <span class="vintageNumber">2019</span> 
     <span class="plus">+</span>
     <span class="minus">-</span>          
 </span>
@@ -124,6 +124,8 @@ So how can we extract the region / wine type? For the first wine, 'Napa Valley' 
 //span[@class='wineName']/text()
 ```
 
+*Note: You may have an issue wherein there are extra carriage returns in your results, making the wine type not paste cleanly. You can fix this in Excel by selecting the two types of cell that contain a carriage return, using Find & Replace to replace that sequence of spaces with nothingness, then using Find & Select > Go to Special to select all the blanks in the range. Then you can delete them.*
+
 Now we have in our spreadsheet: 
 
 | Vineyard                           | Type                                          | Year |
@@ -142,8 +144,6 @@ Here are a few webpages we can practice scraping from using XPath. See if you ca
 - Some stuff from the [Jeopardy Archive](https://j-archive.com/listseasons.php)
 - List of [Pokemon](https://pokemon.fandom.com/wiki/List_of_Pok%C3%A9mon) from Wikipedia
 - [Middle Earth Recipes](http://www.lotrscrapbook.bookloaf.net/other/recipes.html)
-
-
 
 If you're ever lost or aren't sure how to formulate a query, check out the [w3schools XPath Tutorial](https://www.w3schools.com/xml/xpath_intro.asp). 
 
