@@ -1,4 +1,4 @@
-# DreamLab22
+# DreamLab23
 
 # XPath Web Scraping Activity
 
@@ -8,7 +8,7 @@
 
 [w3schools XPath Tutorial](https://www.w3schools.com/xml/xpath_intro.asp)
 
-XPath is a query language used to select HTML / XML information. We can use this to select information on a webpage, such as hyperlinks, and copy/paste that information into a datasheet. 
+XPath is a query language used to select HTML / XML information. We can use this to select information on a webpage, such as hyperlinks, and copy/paste that information into a datasheet. You can later build on your XPath knowledge to use programming languages, like Python or R, to automatically scrape a website. 
 
 ## How does HTML work?
 
@@ -76,11 +76,11 @@ This would select both "Phoebe" and "Zeus".
 
 ### Using XPath to extract information
 
-For this activity, you'll need the [XPath Helper Chrome extension](https://chrome.google.com/webstore/detail/xpath-helper/hgimnogjllphhhkhlmebbmlgjoejdpjl) (and also to get using a Chromium-based browser like Brave or Google Chrome). Take a minute to get that installed. XPath Helper lets you test out queries on a webpage, and you can use it to select what you want to copy / paste into a spreadsheet. Go ahead and open a spreadsheet to add your data to as well. 
+For this activity, you'll need the [XPath Helper Chrome extension](https://chrome.google.com/webstore/detail/xpath-helper/hgimnogjllphhhkhlmebbmlgjoejdpjl) and a Chromium-based browser like Brave or Google Chrome. Take a minute to get that installed. XPath Helper lets you test out queries on a webpage, and you can use it to select what you want to copy / paste into a spreadsheet. Go ahead and open a spreadsheet to add your data to as well. 
 
 As an example, let's look at the [Wine Spectator Top 100 list](https://top100.winespectator.com/lists/). 
 
-This page is actually well-formatted into a table, so we could potentially copy / paste the information, but that might cause problems when putting it into a spreadsheet format. So we'll use XPath to extract the information on the page for easy inputting into a spreadsheet. 
+This page is actually well-formatted into a table, so we could potentially copy / paste the information, but that might cause problems when putting it into a spreadsheet format. So we'll use XPath to extract the information on the page for easy import into a spreadsheet. 
 
 Right click on the first wine name (**Dominus Estate** Napa Valley) and select "Inspect Element" or "Inspect" (depends on your browser).
 
@@ -140,7 +140,7 @@ Here are a few webpages we can practice scraping from using XPath. See if you ca
 
 - [Best Fantasy Movies from Rotten Tomatoes](https://editorial.rottentomatoes.com/guide/best-fantasy-movies-of-all-time/) (but come on how is HP higher than LOTR??)
 - Some stuff from the [Jeopardy Archive](https://j-archive.com/listseasons.php)
-- List of [Pokemon](https://pokemon.fandom.com/wiki/List_of_Pok%C3%A9mon) from wikipedia
+- List of [Pokemon](https://pokemon.fandom.com/wiki/List_of_Pok%C3%A9mon) from Wikipedia
 - [Middle Earth Recipes](http://www.lotrscrapbook.bookloaf.net/other/recipes.html)
 
 
