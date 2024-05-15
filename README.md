@@ -28,11 +28,11 @@ element name: the ```a``` is the element. Between the ```<>``` is all the inform
 
 node: everything inside the element. This is also called a root element. 
 
-opening and closing tags: ```<a``` and ```</a>```
+opening and closing tags: ```<a>``` and ```</a>```
 
 attributes: usually come in key/value pairs like ```name="value"```. here, the ```href='https://library.udel.edu'``` is our attribute. 
 
-Because of the nested structure, we will be dealing with a ```parent/child``` structure. Everything in HTML must a single 'root' element -- you can see this in the ```<html>``` tag on a webpage. For example: 
+Because of the nested structure, we will be dealing with a ```parent/child``` structure. Everything in HTML must have a single 'root' element -- you can see this in the ```<html>``` tag on a webpage. For example: 
 
 ```html
 <cats>
@@ -45,7 +45,7 @@ Because of the nested structure, we will be dealing with a ```parent/child``` st
 </cats>
 ```
 
-The **root** element is ```<cats>```. ```<calicos>``` and ```<tabbys>``` are both the **children** elements of ```<cats>```. The **values** of the ```<name>``` element are Phoebe and Zeus. 
+The **root** element is ```<cats>```. ```<calicos>``` and ```<tabbys>``` are both the **child** elements of ```<cats>```. The **values** of the ```<name>``` elements are Phoebe and Zeus. 
 
 Together this structure is called a **tree**. 
 
@@ -80,7 +80,9 @@ For this activity, you'll need the [XPath Helper Chrome extension](https://chrom
 
 As an example, let's look at the [Wine Spectator Top 100 list](https://top100.winespectator.com/lists/) from 2021.  
 
-This page is actually well-formatted into a table, so we could potentially copy / paste the information, but that might cause problems when putting it into a spreadsheet format. So we'll use XPath to extract the information on the page for easy import into a spreadsheet. 
+This page is actually well-formatted into a table, so we could potentially copy / paste the information, but that might cause problems when putting it into a spreadsheet format. So we'll use XPath to extract the information on the page for easy import into a spreadsheet.
+
+Take a moment to create a new Excel document or other spreadsheet with three columns: **Vineyard**, **Type**, and **Year**.
 
 Right click on the first wine name (**Dominus Estate** Napa Valley) and select "Inspect Element" or "Inspect" (depends on your browser).
 
@@ -124,7 +126,7 @@ So how can we extract the region / wine type? For the first wine, 'Napa Valley' 
 //span[@class='wineName']/text()
 ```
 
-*Note: You may have an issue wherein there are extra carriage returns in your results, making the wine type not paste cleanly. You can fix this in Excel by selecting the two types of cell that contain a carriage return, using Find & Replace to replace that sequence of spaces with nothingness, then using Find & Select > Go to Special to select all the blanks in the range. Then you can delete them.*
+*Because of how the Type is formatted, there are extra carriage returns in your results, making the wine type not paste cleanly. You can fix this in Excel by selecting the two types of cell that contain a carriage return, using Find & Replace to replace that sequence of spaces with nothingness, then using Find & Select > Go to Special to select all the blanks in the range. Then you can delete them, and paste the results cleanly into your spreadsheet.*
 
 Now we have in our spreadsheet: 
 
@@ -150,6 +152,8 @@ If you're ever lost or aren't sure how to formulate a query, check out the [w3sc
 You can use what you just learned to extract information from webpages using XPath, or you can integrate XPath queries into a script to programmatically access data on a webpage. Some challenges with this method include "anti-crawler" technologies that certain websites have, as well as some basic knowledge of a programming language. 
 
 This tutorial for [Python and XPath](https://medium.com/analytics-vidhya/web-scraping-using-python-and-selenium-xpath-f315f63ac229) may help, as well as lessons on web scraping from the [Programming Historian](https://programminghistorian.org/en/lessons/?topic=web-scraping). [Data Miner](https://dataminer.io/) is a relatively new extension that operates similarly to XPath but with a GUI. 
+
+There is also a Web Scraping Workshop that uses XPath and Python in Kayla's [WebScrapingWorkshop](https://github.com/kaylaabner/WebScrapingWorkshop/tree/main) GitHub repository.
 
 ### Credits
 
