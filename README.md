@@ -17,7 +17,7 @@ XML and HTML are nested data structures. This structure allows for more complex 
 Using this as an example:
 
 ```html
-<a href='https://library.udel.edu'>Library, Museums and Press</a>
+<a href='https://lib.umich.edu/'>University of Michigan Library</a>
 ```
 
 This is what a hyperlink looks like in HTML. You can right click on links on a webpage and select "Inspect Element" (or similar, depending on the browser) to see something like this. 
