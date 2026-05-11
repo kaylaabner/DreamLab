@@ -1,4 +1,4 @@
-# DreamLab23
+# DHSI 2026 (was Dream Lab)
 
 # XPath Web Scraping Activity
 
