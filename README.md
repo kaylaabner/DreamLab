@@ -20,19 +20,19 @@ Using this as an example:
 <a href='https://lib.umich.edu/'>University of Michigan Library</a>
 ```
 
-This is what a hyperlink looks like in HTML. You can right click on links on a webpage and select "Inspect Element" (or similar, depending on the browser) to see something like this. 
+This is what a hyperlink looks like in HTML. You can right click on links on a webpage and select "Inspect" (or similar, depending on the browser) to see the HTML for any given element on a webpage. 
 
 ### Vocabulary
 
-element name: the ```a``` is the element. Between the ```<>``` is all the information you need about this element on the page. 
+**element**: the ```a``` is the element. Between the ```<>``` is all the information you need about this element on the page. 
 
-node: everything inside the element. This is also called a root element. 
+**node**: a generic term to describe all the content in the HTML file. Elements are a type of node. 
 
-opening and closing tags: ```<a>``` and ```</a>```
+**opening and closing tags**: ```<a>``` and ```</a>```
 
-attributes: usually come in key/value pairs like ```name="value"```. here, the ```href='https://library.udel.edu'``` is our attribute. 
+**attributes**: usually come in key/value pairs like ```name="value"```. here, the ```href='https://lib.umich.edu'``` is our attribute. 
 
-Because of the nested structure, we will be dealing with a ```parent/child``` structure. Everything in HTML must have a single 'root' element -- you can see this in the ```<html>``` tag on a webpage. For example: 
+Because of the nested structure, we will be dealing with a ```parent/child``` structure. Everything in HTML must have a single 'root' node -- you can see this in the ```<html>``` tag on a webpage. For example: 
 
 ```html
 <cats>
@@ -45,7 +45,7 @@ Because of the nested structure, we will be dealing with a ```parent/child``` st
 </cats>
 ```
 
-The **root** element is ```<cats>```. ```<calicos>``` and ```<tabbys>``` are both the **child** elements of ```<cats>```. The **values** of the ```<name>``` elements are Phoebe and Zeus. 
+The **root** element is ```<cats>```. ```<calicos>``` and ```<tabbys>``` are both **child** elements of ```<cats>```. The **values** of the ```<name>``` elements are Phoebe and Zeus. 
 
 Together this structure is called a **tree**. 
 
@@ -61,82 +61,79 @@ If you want to select multiple elements, you don't have to specify the full path
 
 This would select both "Phoebe" and "Zeus". 
 
-| Expression                        | Description                                                  |
-| :-------------------------------- | :----------------------------------------------------------- |
-| *nodename*                        | Selects all nodes with the name "*nodename*"                 |
-| /                                 | Selects from the root node                                   |
+| Expression                        | Description                                                                                           |
+| :-------------------------------- | :---------------------------------------------------------------------------------------------------- |
+| *nodename*                        | Selects all nodes with the name "*nodename*"                                                          |
+| /                                 | Selects from the root node                                                                            |
 | //                                | Selects nodes in the document from the current node that match the selection no matter where they are |
-| .                                 | Selects the current node                                     |
-| ..                                | Selects the parent of the current node                       |
-| @                                 | Selects attributes                                           |
-| element[@attribute = 'something'] | Select an attribute with a specific value.                   |
-| *                                 | Wildcard -- selects any node                                 |
-
-
-
+| .                                 | Selects the current node                                                                              |
+| ..                                | Selects the parent of the current node                                                                |
+| @                                 | Selects attributes                                                                                    |
+| element[@attribute = 'something'] | Select an attribute with a specific value.                                                            |
+| *                                 | Wildcard -- selects any node                                                                          |
 ### Using XPath to extract information
 
-For this activity, you'll need the [XPath Helper Chrome extension](https://chrome.google.com/webstore/detail/xpath-helper/hgimnogjllphhhkhlmebbmlgjoejdpjl) and a Chromium-based browser like Brave or Google Chrome. Take a minute to get that installed. XPath Helper lets you test out queries on a webpage, and you can use it to select what you want to copy / paste into a spreadsheet. Go ahead and open a spreadsheet to add your data to as well. 
+For this activity, you'll need the [XPath Helper Chrome extension](https://chromewebstore.google.com/detail/xpath-helper/nmjjcokoigamfoklbjmhpmjajmcjbjld) and Google Chrome. Take a minute to get that installed. XPath Helper lets you test out queries on a webpage, and you can use it to select what you want to copy / paste into a spreadsheet. Go ahead and open a spreadsheet to add your data to as well. 
 
-As an example, let's look at the [Wine Spectator Top 100 list](https://top100.winespectator.com/lists/) from 2021.  
+As an example, let's look at the [Wine Spectator Top 100 list](https://top100.winespectator.com/lists/) from 2024.  
 
 This page is actually well-formatted into a table, so we could potentially copy / paste the information, but that might cause problems when putting it into a spreadsheet format. So we'll use XPath to extract the information on the page for easy import into a spreadsheet.
 
-Take a moment to create a new Excel document or other spreadsheet with three columns: **Vineyard**, **Type**, and **Year**.
+Take a moment to create a new Excel document or other spreadsheet with three columns: **Vineyard**, **Type**, and **Vintage**.
 
-Right click on the first wine name (**Dominus Estate** Napa Valley) and select "Inspect Element" or "Inspect" (depends on your browser).
+Right click on the first wine name (**Viña Don Melchor** Cabernet Sauvignon Puente Alto Puente Alto Vineyard) and select "Inspect Element" or "Inspect" (depends on your browser).
 
 You'll see: 
 
 ```html
 <span class="wineName">
-    <span class="sort-text">Dominus Estate</span> 
-    " Napa Valley "
-    <span class="vintageNumber">2019</span> 
+    <span class="sort-text">Viña Don Melchor</span> 
+    " Cabernet Sauvignon Puente Alto Puente Alto Vineyard "
+    <span class="vintageNumber">2021</span> 
     <span class="plus">+</span>
     <span class="minus">-</span>          
 </span>
 ```
 
-The element name is ```span```. We can specify which ```class``` we want using the following query: 
+The element name is ```span```. But, there are other elements called `span` on this page, so we can specify which ```class``` we want using the following query: 
 
 ```xquery
 //span[@class='wineName']
 ```
 
-This will give us everything in that tree, including the + and - for the interactive nature of the webpage. We could clean that up in OpenRefine or something, but we can also clean up our query to select just what we want. 
+This will give us everything in that tree, including the + and - for the interactive nature of the webpage. We could clean that up in OpenRefine or something, but we can also clean up our query to select just what we want (the name of the vineyard).
+
+"sort-text" is the attribute where the name of the vineyard is stored. We can use this query to select that separately, to paste into a separate column on our spreadsheet. 
 
 ```xquery
 //span[@class='sort-text']
 ```
 
-"sort-text" is the attribute where the name of the vineyard is stored. We can use this query to select that separately, to paste into a separate column on our spreadsheet. 
-
 So now we have a spreadsheet that looks like this: 
 
-| Vineyard                           | Type | Year |
-| ---------------------------------- | ---- | ---- |
-| Dominus Estate                     |      |      |
-| Château Pichon Longueville Lalande |      |      |
-| Heitz                              |      |      |
+| Vineyard          | Type | Vintage |
+| ----------------- | ---- | ------- |
+| Viña Don Melchor  |      |         |
+| Beaulieu Vineyard |      |         |
+| Antinori          |      |         |
 
-So how can we extract the region / wine type? For the first wine, 'Napa Valley' is just kind of hanging out inside the wineName element. You can tell because there are no <> </> enclosing that value. We can use the ```text()``` function in XPath to extract that information.
+So how can we extract the region / wine type? For the first wine, 'Cabernet Sauvignon Puente Alto Puente Alto Vineyard' is just kind of hanging out inside the wineName element. You can tell because there are no <> </> enclosing that value. We can use the ```text()``` function in XPath to extract that information.
 
 ```xquery
 //span[@class='wineName']/text()
 ```
 
-*Because of how the Type is formatted, there are extra carriage returns in your results, making the wine type not paste cleanly. You can fix this in Excel by selecting the two types of cell that contain a carriage return, using Find & Replace to replace that sequence of spaces with nothingness, then using Find & Select > Go to Special to select all the blanks in the range. Then you can delete them, and paste the results cleanly into your spreadsheet.*
+*Because of how the Type is formatted, there is extra whitespace in your results, creating extra blank rows. You can fix this in Excel by selecting each type of cell that contain whitespace, using Find & Replace to replace that sequence of spaces with nothing, then using Find & Select > Go to Special to select all the blanks in the range, then delete them.*
 
 Now we have in our spreadsheet: 
 
-| Vineyard                           | Type                                          | Year |
-| ---------------------------------- | --------------------------------------------- | ---- |
-| Dominus Estate                     | Napa Valley                                   |      |
-| Château Pichon Longueville Lalande | Pauillac                                      |      |
-| Heitz                              | Cabernet Sauvignon Oakville Martha's Vineyard |      |
+| Vineyard          | Type                                                             | Vintage |
+| ----------------- | ---------------------------------------------------------------- | ------- |
+| Viña Don Melchor  | Cabernet Sauvignon Puente Alto Puente Alto Vineyard              |         |
+| Beaulieu Vineyard | Cabernet Sauvignon Napa Valley Georges de Latour Private Reserve |         |
+| Antinori          | Toscana Tignanello                                               |         |
 
-See if you can select and add the "Year / Vintage" values on your own, and add them to your spreadsheet.
+See if you can select and add the "Vintage" values on your own, and add them to your spreadsheet.
 
 ### Next Steps
 
@@ -147,7 +144,8 @@ Here are a few webpages we can practice scraping from using XPath. See if you ca
 - List of [Pokemon](https://pokemon.fandom.com/wiki/List_of_Pok%C3%A9mon) from Wikipedia
 - [Middle Earth Recipes](http://www.lotrscrapbook.bookloaf.net/other/recipes.html)
 
-If you're ever lost or aren't sure how to formulate a query, check out the [w3schools XPath Tutorial](https://www.w3schools.com/xml/xpath_intro.asp). 
+If you're ever lost or aren't sure how to formulate a query, check out the [w3schools XPath Tutorial](https://www.w3schools.com/xml/xpath_intro.asp). AI tools like Gemini can also be helpful with computer languages, but make sure the information comes from a reputable source, like w3schools or Wikipedia. From the Elements panel in Chrome, you can also right click on an element and select "copy as XPath" to get a direct path to specific element. These XPath queries are often quite long, but that can help you figure out how to formulate your query.
+#### Integrating XPath with Programming
 
 You can use what you just learned to extract information from webpages using XPath, or you can integrate XPath queries into a script to programmatically access data on a webpage. Some challenges with this method include "anti-crawler" technologies that certain websites have, as well as some basic knowledge of a programming language. 
 
