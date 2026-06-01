@@ -151,8 +151,6 @@ You can use what you just learned to extract information from webpages using XPa
 
 This tutorial for [Python and XPath](https://medium.com/analytics-vidhya/web-scraping-using-python-and-selenium-xpath-f315f63ac229) may help, as well as lessons on web scraping from the [Programming Historian](https://programminghistorian.org/en/lessons/?topic=web-scraping). [Data Miner](https://dataminer.io/) is a relatively new extension that operates similarly to XPath but with a GUI. 
 
-There is also a Web Scraping Workshop that uses XPath and Python in Kayla's [WebScrapingWorkshop](https://github.com/kaylaabner/WebScrapingWorkshop/tree/main) GitHub repository.
-
 ### Credits
 
 This tutorial was adapted from [Elizabeth Wickes' XPath tutorial](https://github.com/elliewix/IS-452-Spring2018/blob/master/Lectures/Week-12-XPath-A.ipynb) and the [w3schools XPath Tutorial](https://www.w3schools.com/xml/xpath_intro.asp). 
